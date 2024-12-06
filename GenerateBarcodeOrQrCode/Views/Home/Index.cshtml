@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Barcode &hArr; QR Code</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <img src="@Url.Action("GenerateBarcode")" alt="Barcode"/>
+        <img src="@Url.Action("GenerateQrCode")" alt="QrCode" />
+    </div>
+    <div class="col-12">
+        @using (Html.BeginForm("GenerateBarcode", "Home"))
+        {
+            <div class="col-md-6">
+                BarCode:<input name="code" class="form-control mb-2" type="text" />
+                <button type="submit" class="btn btn-primary">Barcode</button>
+            </div>
+        }
+
+        @using (Html.BeginForm("GenerateQrCode", "Home"))
+        {
+            <div class="col-md-6">
+                QRCode:<input name="code" class="form-control mb-2" type="text" />
+                <button type="submit" class="btn btn-primary">QR Code</button>
+            </div>
+        }
+    </div>
+   
+</div>
